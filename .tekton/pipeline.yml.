@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: simple-interest-pipeline
+spec:
+  tasks:
+    - name: cleanup
+      taskRef:
+        name: cleanup
+    - name: test
+      runAfter:
+        - cleanup
+      taskRef:
+        name: test
