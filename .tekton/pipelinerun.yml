@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: simple-interest-pipelinerun
+spec:
+  pipelineRef:
+    name: simple-interest-pipeline
+  workspaces:
+    - name: shared-workspace
+      emptyDir: {}
